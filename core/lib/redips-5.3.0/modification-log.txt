@@ -1,0 +1,1 @@
+Changed the disabled cursor from "auto" to "" so that REDIPS wouldn't override my setting of "default", which keeps users from seeing the "text" (i-beam) cursor over the letters on the tiles.

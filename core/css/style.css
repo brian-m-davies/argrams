@@ -1,0 +1,297 @@
+/* --- Styles --- */
+
+/* ------------------------------------------------ Global --- */
+
+/* current tiles https://maketintsandshades.com/#ffc140,#ff6a7f,#00f146,#00b5e8 */
+/* original tiles https://maketintsandshades.com/#a7cbef,98fc66,ff9b73,fcff97 */
+/* tile browns https://maketintsandshades.com/#DFB996 */
+
+html { position: fixed; overflow: hidden; touch-action: manipulation; }
+
+html, body { height: 100%; width: 100%; }
+
+body { background-color: #323d48; font-family: Arial; margin: 0px; -moz-user-select: none; -webkit-user-select: none; }
+
+/* --- Layout - */
+
+div#gameui { width: 848px; margin-left: auto; margin-right: auto; }
+div#redips-drag { margin: 12px; float: left; }
+
+div#sidebar { margin: 24px; margin-top: 88px; float: left; }
+
+/* --- General - */
+
+h1 { font-size: 14pt; font-weight: 600; margin: 0px; }
+h2 { font-size: 10pt; font-weight: 600; margin: 0px; }
+p  { font-size: 10pt; margin: 0px; }
+
+h1, h2 { cursor: default; }
+h1, h2 { text-transform: lowercase; }
+
+span.link { cursor: pointer; }
+
+span.link       { color: white; opacity: 1; transition: color 300ms ease-out, opacity 300ms ease-out; }
+span.link:hover { color: #fcff97; }
+span.link.disabled { color: white; opacity: .5; cursor: default; }
+
+span.link      { padding: 0px 2px; font-size: 11pt; }
+
+div#status span.link { margin: 0px 0px 0px 8px; }
+div#cheats span.link { margin: 0px 8px 0px 0px; }
+
+/* ------------------------------------------------ Sidebar --- */
+
+div#status, div#history, div#controls, div#cheats { width: 212px; margin-bottom: 18px; border-radius: 6px; background-color: #4c5c6c; color: white; padding: 8px; }
+
+div#sidebar h1, div#sidebar h2 { color: #aab3bb; /* #bbc2c9; #dce0e4; */ }
+
+/* --- Status - */
+
+div#status h1 { }
+
+div.scorebox { display: inline-block; margin-left: 4px; margin-bottom: 4px; width: 46%; }
+
+div#status span.score { color: white; font-size: 24pt; padding-left: 2px; font-weight: 900; vertical-align: middle; }
+
+span#newgame   { float: right; }
+span#settings  { float: right; }
+
+/* --- History - */
+
+div#moves { margin-top: 4px; background-color: #f0f0f0; width: 212px; height: 152px; overflow-y: scroll; }
+div#moves p { padding: 2px 8px 2px 3px; background-color: #f0f0f0; color: #323d48; cursor: default; }
+div#moves p.computer { background-color: white; color: #323d48; }
+
+div#moves span.who { float: left; margin-right: 4px; }
+div#moves span.words { display: inline-block; max-width: 132px; }
+div#moves span.word { cursor: pointer; }
+div#moves span.score { float: right; }
+
+/* --- Controls - */
+
+div#controls div.button { margin: 6px 6px; }
+
+div#controls div#playbutton { position: relative; left: 0px; top: 0px; }
+
+div#pointspreview { position: absolute; top: -6px; left: -6px; color: white; background-color: #5b973d; padding: 3px; border-radius: 50%; font-size: 8pt; font-weight: 900; min-width: 12px; text-align: center; opacity: 0; transition: opacity 300ms ease-out; }
+
+div#pointspreview.visible { opacity: 1; }
+
+/* ------------------------------------------------ Buttons --- */
+
+/* --- Base - */
+
+div.button {
+	cursor: pointer;
+	border-radius: 8px;
+	display: inline-block;
+	padding: 7px;
+	padding-left: 5px;
+	min-width: 78px;
+	text-align: center;
+	background-color: #fcff97; color: black;
+	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.28);
+	transition: background-color 300ms ease-out;
+}
+
+div.button span {
+	font-size: 10pt; font-weight: bold; text-transform: lowercase;
+	text-shadow: 1px 1px 0px rgba(255,255,255,.3);
+	opacity: 0.7; transition: opacity 300ms ease-out;
+}
+
+
+/* --- Behavior - */
+
+div.button:hover span { opacity: 1; }
+div.button:active { box-shadow: none; }
+div.button:active span { font-size: 9.3pt; }
+
+div.button.disabled { cursor: default; }
+div.button.disabled span { opacity: .28; text-shadow: none; }
+div.button.disabled:hover span { opacity: .28; }
+div.button.disabled:active { box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.28); }
+div.button.disabled:active span { font-size: 10pt; }
+
+
+/* --- Colors - */
+
+div#controls div.button.green { background-color: #98fc66 /*#77d42a*/; color: black; }
+
+
+/* ------------------------------------------------ Play Area --- */
+
+/* --- Cell Size - */
+
+div#redips-drag td { height: 33px; width: 33px; }
+
+div.rack { height: 40px; margin: 0px 8px; padding: 4px; }
+div.rack table { border-radius: 4px; border-left: 2px solid #4c5c6c; border-right: 2px solid #4c5c6c; }
+
+table.board { table-layout: fixed; background-color: white; border-spacing: 1px; border: 3px solid white; border-radius: 6px; }
+
+td.cell { background-color: #f0f0f0; border-radius: 6px; box-shadow: inset 1px 1px 2px #bbbbbb; }
+
+
+/* --- Bonus Squares - */
+
+td.cell { background-position: 4px 2px; background-size: 28px 28px; background-repeat: no-repeat; }
+
+/* based on Pantone 801c 802c 804c 805c with brightness + 30 */
+
+td.cell.DL { background-color: #ffc140; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg"><style>text { font: 12pt sans-serif; }</style><text fill="white" x="5" y="22">2L</text></svg>'); }
+
+td.cell.TL { background-color: #ff6a7f; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg"><style>text { font: 12pt sans-serif; }</style><text fill="white" x="5" y="22">3L</text></svg>'); }
+
+td.cell.DW { background-color: #00f146; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg"><style>text { font: 12pt sans-serif; }</style><text fill="white" x="2" y="22">2W</text></svg>'); }
+
+td.cell.TW { background-color: #00b5e8; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg"><style>text { font: 12pt sans-serif; }</style><text fill="white" x="2" y="22">3W</text></svg>'); }
+
+td.cell.ST { background-color: #00f146; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" width="260" height="245"><path fill="white" d="m55,237 74-228 74,228L9,96h240"/></svg>'); background-position: 50% 40%; }
+
+td.cell.custom { background-color: #bbbbbb; background-image: url('data:image/svg+xml;charset=UTF-8,<?xml version="1.0" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg"><style>text { font: 12pt sans-serif; }</style><text fill="white" x="5" y="22">??</text></svg>'); }
+
+/* #a823ec */
+
+/* --- Tiles - */
+
+/* https://www.freepik.com/free-vector/wood-texture_849626.htm */
+
+div.tile {
+	width: 31px; height: 31px;
+	background-image: url('../img/wood-texture_1083-21.jpg');
+	color: black;
+	font-size: 16pt; line-height: 22px; text-align: center;
+	border-radius: 4px;
+	cursor: default;
+	border: 1px solid #e9ceb6;
+	border-top-color: #f2e3d5;
+	border-left-color: #f2e3d5;
+	border-right-color: #dfb996;
+	border-bottom-color: #dfb996;
+	display: inline-block;
+}
+
+div.tile.computertile span, div.tile.computertile sup { visibility: hidden; }
+
+div.tile span.blank { color: #99404c; opacity: 1; }
+div.tile span.digraph { font-size: 16pt; font-family: "Arial Narrow"; letter-spacing: -1px; }
+
+div.tile sup { font-size: .4em; }
+
+/* ------------------------------------------------ Spinner --- */
+
+div.spinner { position: fixed; top: 0px; right: 0px; padding: 12px; color: white; font-size: 28pt;
+	opacity: 0; transition: opacity 300ms ease-out; }
+
+div.spinner.visible { opacity: .7; }
+
+/* ------------------------------------------------ Dialogs --- */
+
+/* --- Appearance - */
+
+div.disabler { position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px;
+	background-color: black; transition: opacity 400ms ease-out; }
+
+div.dialog {
+	position: absolute;
+	background-color: white; color: #435160;
+	border-radius: 6px;
+	padding: 12px; padding-bottom: 8px;
+	width: 300px;
+}
+
+div.dialog { box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12); }
+
+
+/* --- Behavior - */
+
+div.disabler { z-index: 2000; }
+div.dialog { z-index: 2001; }
+
+div.dialog { display: none; }
+div.dialog.visible { display: block; }
+
+/* --- Content - */
+
+div.dialog div.content { min-height: 100px; margin-bottom: 12px; }
+
+div.dialog hr { height: 1px; border: none; margin: 6px 0px; opacity: .2; background-color: #435160; margin: 8px 0px; }
+div.dialog p { font-size: 10pt; }
+
+div.dialog div.tile { cursor: pointer; margin: 4px; }
+
+div.dialog h2 { font-size: 14pt; }
+
+
+div#alertdialog span.score { font-size: 24pt; padding-left: 2px; font-weight: 900; vertical-align: middle; }
+
+div#defineblankdialog { width: 280px; }
+div#swaptilesdialog { width: auto; }
+div#swaptilesdialog div.tileselector { transition: margin-top 150ms ease-out; }
+
+div#settingsdialog span, div#settingsdialog label { text-transform: lowercase; }
+
+input#lookupinput { font-size: 12pt; font-weight: 800; width: 200px; border-radius: 4px; color: #323d48; padding: 4px 6px; border: none; background-color: #e8e8e8; outline: none; }
+span#lookupoutput { font-size: 14pt; margin-left: 10px; }
+span#lookuplink { font-size: 14pt; margin-left: 10px; }
+
+/* --- Buttons - */
+
+div.dialogbutton { float: right; color: #323d48; border-radius: 6px; width: 20px; height: 20px; padding: 4px; text-align: center; cursor: pointer; margin-left: 6px; }
+
+div.dialogbutton span { font-size: 16pt; opacity: 0.8; transition: opacity 300ms ease-out; }
+
+div.dialogbutton:hover span { opacity: 1; }
+div.dialogbutton:active span { font-size: 15.0pt; }
+
+/* ------------------------------------------------ Mobile --- */
+
+/* --- iPad Portrait - */
+
+@media (max-width: 846px)
+{
+	div#gameui { width: 571px; }
+	div#sidebar { width: 478px; height: 226px; margin: 12px; margin-left: 48px; }
+	
+	div#status, div#history, div#controls, div#cheats { margin-bottom: 10px; }
+	
+	div#status {}
+	div#history { position: relative; left: 250px; top: -82px; }   /* 225 high 18 margin bottom*/
+	div#controls, div#cheats { position: relative; top: -195px; }
+}
+
+/* --- iPhone - */
+
+@media (max-width: 564px)
+{
+	div#gameui { width: 376px; }
+	div#redips-drag { margin: 4px 12px; }
+	div#redips-drag td { height: 20px; width: 20px; }
+	
+	div.rack { height: 24px; margin: 0px 2px; padding: 4px; }
+	
+	div.tile { width: 18px; height: 18px; font-size: 9pt; line-height: 12px; }
+	
+	div.tile sup { font-size: .6em; }
+	
+	td.cell.ST { background-position: 3px 3px; background-size: 16px 16px; }
+	td.cell.DL, td.cell.TL, td.cell.DW, td.cell.TW { background-image: none; }
+	
+	div#sidebar { width: 352px; height: 226px; margin: 4px 12px; }
+	
+	div#status { width: auto; }
+	
+	
+	div.scorebox { width: 60px; margin-bottom: 0px; }
+	div#status span.score { font-size: 12pt; }
+	div#status h2 { display: inline-block; margin-left: 42px; width: 160px; }
+	
+	div#history { display: none; }
+	div#controls, div#cheats { position: inherit; }
+	
+	div#controls { width: auto; }
+	div#controls div.button { min-width: 58px; }
+}
+
+/* ------------------------------------------------ End --- */

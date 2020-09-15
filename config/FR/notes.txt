@@ -1,0 +1,5 @@
+replaced all accents with unaccented characters (including ç with c)
+replaced all ligatures œ with oe, and æ with ae
+deleted all apostrophes
+
+THERE ARE DUPLICATES IN THE FILE AS A RESULT.  This won't cause problems in game play, but it offends me.

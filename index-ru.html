@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Argrams (Russian)</title>
+
+<link rel="apple-touch-icon" href="./core/img/apple-touch-icon.png">
+<link rel="icon" sizes="16x16" type="image/png" href="./core/img/favicon-16x16.png">
+<link rel="icon" sizes="32x32" type="image/png" href="./core/img/favicon-32x32.png">
+
+<!-- libraries -->
+
+<link rel="stylesheet" href="./core/lib/fontawesome-5.13.0/css/fontawesome.css">
+<link rel="stylesheet" href="./core/lib/fontawesome-5.13.0/css/solid.css">
+
+<script src="./core/lib/react-16.12.0/react.production.min.js"></script>
+<script src="./core/lib/react-16.12.0/react-dom.production.min.js"></script>
+<script src="./core/lib/react-16.12.0/create-react-class.js"></script>
+
+<script src="./core/lib/redips-5.3.0/redips-drag-min.js"></script>
+
+<!-- code -->
+
+<script src="./core/js/widgets.js"></script>
+<script src="./core/js/model.js"></script>
+<script src="./core/js/view.js"></script>
+
+<script src="./config/RU/config.js"></script>
+
+<link rel="stylesheet" href="./core/css/style.css" media="screen">
+
+<script>
+
+function localize (text)
+{
+	if (window ["MESSAGE_DISPLAY"] && (text in MESSAGE_DISPLAY))
+		return MESSAGE_DISPLAY [text];
+	else
+		return text;
+}
+
+function localizetiles (text)
+{
+	if (window ["LETTER_DISPLAY"])
+	{
+		for (key in LETTER_DISPLAY)
+		{
+			var regex = new RegExp (key, 'g');
+
+			text = text.replace (regex, LETTER_DISPLAY [key]);
+		}
+	}
+	
+	return text.toUpperCase ();
+}
+
+function loaddictionary (language)
+{
+	var scriptelement = document.createElement ('script');
+	
+	scriptelement.setAttribute ("src", "./config/" + language + "/dictionary.js");
+	
+	scriptelement.onload = function () { model.initializedictionary (); };
+	scriptelement.onerror = function () { alert (localize ("Could not load dictionary")); };
+	
+	document.getElementsByTagName ("head") [0].appendChild (scriptelement);
+}
+
+var model = null;
+var view = null;
+
+function initialize ()
+{
+	model = new GAME_MODEL ();
+	view = new GAME_VIEW ();
+	
+	loaddictionary (model.config.language);
+}
+
+</script>
+
+</head>
+<body onload="initialize ();" onkeydown="if (view) return view.handlekeyevent (event);">
+<div id="gameui"></div>
+</body>
+</html>
