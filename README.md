@@ -16,11 +16,11 @@ Click the gear for the Settings panel, to choose the computer level and which co
 Click the bird to start a new game.
 
 The game can be played in
-[English](https://brian-m-davies.github.io/rscrab/index.html),
-[Spanish](https://brian-m-davies.github.io/rscrab/index-es.html),
-[French](https://brian-m-davies.github.io/rscrab/index-fr.html),
-[Italian](https://brian-m-davies.github.io/rscrab/index-it.html),
-and [Russian](https://brian-m-davies.github.io/rscrab/index-ru.html).
+[English](https://brian-m-davies.github.io/argrams/index.html),
+[Spanish](https://brian-m-davies.github.io/argrams/index-es.html),
+[French](https://brian-m-davies.github.io/argrams/index-fr.html),
+[Italian](https://brian-m-davies.github.io/argrams/index-it.html),
+and [Russian](https://brian-m-davies.github.io/argrams/index-ru.html).
 Some languages are more robust than others.  See the section below on translation for more information.
 
 If you're on a mobile device, there are specific layouts for regular-sized iPad and iPhone 6.  It probably works on other devices, but
