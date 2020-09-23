@@ -200,6 +200,7 @@ var Status = createReactClass ({ displayName: "Status",
 		return React.createElement ('div', { id: 'status' },
 			React.createElement (ScoreDisplay, this.props),
 			React.createElement ('h2', { },
+				React.createElement (BagButton, this.props),
 				React.createElement ('span', { }, this.props.data.tilebag.length + ' ' + localize ('Tiles Left')),
 				React.createElement (SettingsButton, this.props),
 				React.createElement (NewGameButton, this.props)));
@@ -220,6 +221,24 @@ var ScoreDisplay = createReactClass ({ displayName: "ScoreDisplay",
 			React.createElement ('div', { id: 'computerscorebox', className: 'scorebox' },
 				React.createElement ('h1', { dangerouslySetInnerHTML: { __html: computerhtml }}))
 				];
+	}
+});
+
+var BagButton = createReactClass ({ displayName: "BagButton",
+
+	render: function ()
+	{
+		var disabled = this.props.locked || this.props.tilebagvisible;
+		
+		return React.createElement ('span', { id: 'tiles', className: 'link' + (disabled ? " disabled" : ""), dangerouslySetInnerHTML: { __html: '<i class="fas fa-shopping-bag"></i>' }, onClick: this.click });
+	},
+	
+	click: function ()
+	{
+		var disabled = this.props.locked || this.props.tilebagvisible;
+		
+		if (! disabled)
+			view.showtilebagdialog ();
 	}
 });
 
@@ -455,8 +474,7 @@ var Cheats = createReactClass ({ displayName: "Cheats",
 			React.createElement ('h2', { },
 				React.createElement (LookupButton, this.props),
 				React.createElement (HintButton, this.props),
-				React.createElement (PeekButton, this.props),
-				React.createElement (BagButton, this.props)))
+				React.createElement (PeekButton, this.props)))
 	}
 });
 
@@ -513,24 +531,6 @@ var PeekButton = createReactClass ({ displayName: "PeekButton",
 		
 		if (! disabled)
 			view.showpeek ();
-	}
-});
-
-var BagButton = createReactClass ({ displayName: "BagButton",
-
-	render: function ()
-	{
-		var disabled = this.props.locked || this.props.tilebagvisible;
-		
-		return React.createElement ('span', { className: 'link' + (disabled ? " disabled" : ""), dangerouslySetInnerHTML: { __html: '<i class="fas fa-shopping-bag"></i>' }, onClick: this.click });
-	},
-	
-	click: function ()
-	{
-		var disabled = this.props.locked || this.props.tilebagvisible;
-		
-		if (! disabled)
-			view.showtilebagdialog ();
 	}
 });
 
@@ -858,7 +858,9 @@ var TileBagDialog  = createReactClass ({ displayName: "WordLookupDialog",
 
 	render: function ()
 	{
-		var count = this.props.data.tilebag.reduce (function (count, tile)
+		var hiddentiles = this.props.data.tilebag.concat (this.props.data.computerrack.split (""));
+		
+		var count = hiddentiles.reduce (function (count, tile)
 		{
 			count [tile] = (count [tile] ? count [tile] + 1 : 1);
 			

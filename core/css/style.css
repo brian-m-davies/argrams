@@ -34,9 +34,8 @@ span.link       { color: white; opacity: 1; transition: color 300ms ease-out, op
 span.link:hover { color: #fcff97; }
 span.link.disabled { color: white; opacity: .5; cursor: default; }
 
-span.link      { padding: 0px 2px; font-size: 11pt; }
+span.link      { padding: 0px 2px; font-size: 11pt; margin: 0px; }
 
-div#status span.link { margin: 0px 0px 0px 8px; }
 div#cheats span.link { margin: 0px 8px 0px 0px; }
 
 /* ------------------------------------------------ Sidebar --- */
@@ -53,8 +52,9 @@ div.scorebox { display: inline-block; margin-left: 4px; margin-bottom: 4px; widt
 
 div#status span.score { color: white; font-size: 24pt; padding-left: 2px; font-weight: 900; vertical-align: middle; }
 
+span#tiles     { margin-right: 4px; }
 span#newgame   { float: right; }
-span#settings  { float: right; }
+span#settings  { float: right; margin-left: 4px; }
 
 /* --- History - */
 
