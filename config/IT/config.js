@@ -27,50 +27,50 @@ LETTER_POINTS = {
 
 MESSAGE_DISPLAY = {
 	
-	"Tiles Left": "Tiles Left",
+	"Tiles Left": "Piastrelle Rimanenti",
 	
-	"History": "History (please help me translate label text!)",
+	"History": "Storia (all text is from Google translate -- please help improve it!)",
 	
-	"Play": "Play",
-	"Pass": "Pass",
-	"Recall": "Recall",
-	"Swap": "Swap",
+	"Play": "Giocare",
+	"Pass": "Passare",
+	"Recall": "Ripensare",
+	"Swap": "Scambiare",
 	
-	"Argrams": "Argrams",
-	"Start a new game?": "Start a new game?",
-	"Abandon current game?": "Abandon current game?",
+	"Argrams": "Erregrammi",
+	"Start a new game?": "Inizia una nuova partita?",
+	"Abandon current game?": "Abbandonare il gioco in corso?",
 	
-	"Settings": "Settings",
+	"Settings": "Regolazione",
 	"Computer Level": "Computer Level",
-	"Show Legal Words": "Show Legal Words",
-	"Show Helper Tools": "Show Helper Tools",
+	"Show Legal Words": "Mostrare Parole Legali",
+	"Show Helper Tools": "Mostra Strumenti di Supporto",
 	
-	"The comuter swaps tiles.": "The comuter swaps tiles.",
-	"The computer passes.": "The computer passes.",
+	"The comuter swaps tiles.": "Il computer scambia le tessere.",
+	"The computer passes.": "Il computer passa.",
 	
 	"Bingo": "Bingo",
 	
-	"Invalid": "Invalid",
-	"You did not place any tiles.": "You did not place any tiles.",
-	"The first word must be placed on the star.": "The first word must be placed on the star.",
-	"All tiles must be in the same row or column.": "All tiles must be in the same row or column.",
-	" is not connected to other tiles.": " is not connected to other tiles.",
-	"Words can not include spaces.": "Words can not include spaces.",
-	" not found in the dictionary.": " not found in the dictionary.",
+	"Invalid": "Invalido",
+	"You did not place any tiles.": "Non hai posizionato alcuna tessera.",
+	"The first word must be placed on the star.": "La prima parola deve essere posizionata sulla stella.",
+	"All tiles must be in the same row or column.": "Tutte le tessere devono essere nella stessa riga o colonna.",
+	" is not connected to other tiles.": " non è collegato ad altre tessere.",
+	"Words can not include spaces.": "Le parole non possono includere spazi.",
+	" not found in the dictionary.": " non trovata nel dizionario.",
 	
-	"Win": "Win",
-	"Loss": "Lose",
-	"Draw": "Draw",
+	"Win": "Vincere",
+	"Loss": "Perdere",
+	"Draw": "Pareggiare",
 	
-	"for unplayed tiles": "for unplayed tiles",
+	"for unplayed tiles": "per tessere non giocate",
 	
-	"Lookup": "Lookup",
+	"Lookup": "Consultare",
 	
-	"No moves found.": "???",
+	"No moves found.": "Nessuna mossa trovata",
 	
-	"Tiles": "????",
+	"Tiles": "Piastrelle",
 	
-	"Could not load dictionary.": "Could not load dictionary."
+	"Could not load dictionary.": "Impossibile caricare il dizionario."
 }
 
 // --------------------------------------- Definitions

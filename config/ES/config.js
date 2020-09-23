@@ -48,7 +48,7 @@ MESSAGE_DISPLAY = {
 	"Recall": "Limplar",
 	"Swap": "Cambiar",
 	
-	"Argrams": "Argrams",
+	"Argrams": "Eregramas",
 	"Start a new game?": "Comenzar juego nuevo?",
 	"Abandon current game?": "Abandonar el juego actual?",
 	
